@@ -6,6 +6,8 @@
 .pnp.js
 .yarn/install-state.gz
 
+.DS_Store
+
 # testing
 /coverage
 

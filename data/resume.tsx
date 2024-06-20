@@ -7,20 +7,23 @@ export const DATA = {
     location: 'Hyderabad',
     locationLink: 'https://www.google.com/maps/place/sanfrancisco',
     description:
-        'Software Engineer turned Entrepreneur. I love building things and helping people. Very active on Twitter.',
+        'Crafting seamless digital experiences as a full-stack wizard, blending ReactJS, Node.js, and TypeScript into innovative web solutions.',
     summary:
-        'At the end of 2022, I quit my job as a software engineer to go fulltime into building and scaling my own SaaS businesses. In the past, [I pursued a double degree in computer science and business](/#education), [interned at big tech companies in Silicon Valley](https://www.youtube.com/watch?v=d-LJ2e5qKdE), and [competed in over 21 hackathons for fun](/#hackathons). I also had the pleasure of being a part of the first ever in-person cohort of buildspace called [buildspace sf1](https://buildspace.so/sf1).',
-    avatarUrl: '/me.png',
+        'Hey! I am an engineer , dedicated to building and designing scalable websites and applications that prioritize exceptional user experiences and aesthetic design. My hobbies include playing badminton and travelling ',
+    avatarUrl: '/dp1.jpg',
     skills: [
         'React',
         'Next.js',
         'Typescript',
         'Node.js',
+        'express',
         'Postgres',
         'MongoDB',
-        'SQL',
         'Docker',
-        'Java'
+        'TailwindCSS',
+        'Java',
+        'redux',
+        'recoil'
     ],
     contact: {
         email: 'durgaprasadachana1108@gmail.com',
@@ -44,11 +47,11 @@ export const DATA = {
     work: [
         {
             company: 'Celebal Technologies',
-            href: 'https://atomic.finance',
+            href: 'https://celebaltech.com/',
             badges: ['Gold'],
             location: 'Remote',
             title: 'Frontend Devloper Intern',
-            logoUrl: '/atomic.png',
+            logoUrl: '/celebal.jpeg',
             start: 'May 2023',
             end: 'August 2023',
             description:
@@ -57,18 +60,10 @@ export const DATA = {
     ],
     education: [
         {
-            school: 'Vani Vidyalayam',
-            href: 'https://buildspace.so',
-            degree: 's3, s4, sf1, s5',
-            logoUrl: '/buildspace.jpg',
-            start: '2023',
-            end: '2024'
-        },
-        {
             school: 'Indian Institute of Engineering Science and Technology, Shibpur',
             href: 'https://uwaterloo.ca',
             degree: 'Mechanical Engineering',
-            logoUrl: '/waterloo.png',
+            logoUrl: '/iiest.png',
             start: '2016',
             end: '2021'
         }
@@ -103,8 +98,8 @@ export const DATA = {
                     icon: <Icons.github className="size-3" />
                 }
             ],
-            image: '',
-            video: 'https://pub-83c5db439b40468498f97946200806f7.r2.dev/chat-collect.mp4'
+            image: '/dp1.jpg',
+            video: 'https://drive.google.com/file/d/1EMMF6A8iLHkdPPSjkmMtbemeU_-3q5Ow/'
         },
         {
             title: 'Magic UI',
