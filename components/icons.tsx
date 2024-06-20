@@ -1,9 +1,10 @@
-import { GlobeIcon } from 'lucide-react';
+import { CodeXml, GlobeIcon } from 'lucide-react';
 import React from 'react';
 export type IconProps = React.HTMLAttributes<SVGElement>;
 
 export const Icons = {
-    globe: (props: IconProps) => <GlobeIcon {...props} />,
+    globe: (props: IconProps) => <GlobeIcon {...props} className="h-3 w-3" />,
+    gitti: (props: IconProps) => <CodeXml {...props} className="h-3 w-3" />,
     linkedin: (props: IconProps) => (
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
             <title>LinkedIn</title>
