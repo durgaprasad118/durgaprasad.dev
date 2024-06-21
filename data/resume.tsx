@@ -1,7 +1,7 @@
 import React from 'react';
-import { Icons } from '../components/icons';
+import { Icons, SkillIcons } from '../components/icons';
 export const DATA = {
-    name: 'Achana Naga Durga Prasad',
+    name: 'Durga Prasad',
     initials: 'Dp',
     url: 'https://dillion.io',
     location: 'Hyderabad',
@@ -12,18 +12,19 @@ export const DATA = {
         'Hey! I am an engineer , dedicated to building and designing scalable websites and applications that prioritize exceptional user experiences and aesthetic design. My hobbies include playing badminton and travelling ',
     avatarUrl: '/dp1.jpg',
     skills: [
-        'React',
-        'Next.js',
-        'Typescript',
-        'Node.js',
-        'express',
-        'Postgres',
-        'MongoDB',
-        'Docker',
-        'TailwindCSS',
-        'Java',
-        'redux',
-        'recoil'
+        SkillIcons.typescript,
+        SkillIcons.javascript,
+        SkillIcons.next,
+        SkillIcons.html,
+        SkillIcons.css,
+        SkillIcons.tailwind,
+        SkillIcons.git,
+        SkillIcons.mongodb,
+        SkillIcons.postgresql,
+        SkillIcons.graphql,
+        SkillIcons.prisma,
+        SkillIcons.nodejs,
+        SkillIcons.docker
     ],
     contact: {
         email: 'durgaprasadachana1108@gmail.com',
@@ -93,7 +94,7 @@ export const DATA = {
                 {
                     type: 'Source',
                     href: 'https://github.com/durgaprasad118/Blogging_App',
-                    icon: <Icons.gitti className="size-1" />
+                    icon: <Icons.source className="size-1" />
                 }
             ],
             image: '/inkwell.png'
@@ -122,7 +123,7 @@ export const DATA = {
                 {
                     type: 'Source',
                     href: 'https://github.com/durgaprasad118/Pro-Manage',
-                    icon: <Icons.gitti className="size-3" />
+                    icon: <Icons.source className="size-3" />
                 }
             ],
             image: '/promanage.png'

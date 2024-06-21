@@ -66,7 +66,7 @@ export const ResumeCard = ({
                             <div className="font-sans text-xs">{subtitle}</div>
                         )}
                     </CardHeader>
-                    <CardContent className="mt-2 text-xs sm:text-sm">
+                    <CardContent className="mt-2 text-xs sm:text-sm text-slate-500 dark:text-slate-300">
                         {description}
                     </CardContent>
                 </div>

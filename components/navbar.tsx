@@ -1,3 +1,4 @@
+'use client';
 import { HomeIcon, NotebookIcon } from 'lucide-react';
 import { DATA } from '../data/resume';
 import { cn } from '../lib/util';
@@ -7,6 +8,8 @@ import { buttonVariants } from './ui/button';
 import { Separator } from './ui/separator';
 import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip';
 import Link from 'next/link';
+import { Icons } from './icons';
+import playSound from '../lib/PlaySound';
 export default function Navbar() {
     return (
         <div className="pointer-events-none fixed inset-x-0 bottom-0 z-30 mx-auto mb-4 flex origin-bottom h-full max-h-14">
@@ -24,6 +27,7 @@ export default function Navbar() {
                                     }),
                                     'size-12'
                                 )}
+                                onClick={() => playSound('/theme-audio.wav')}
                             >
                                 <HomeIcon className="size-4" />
                             </Link>
@@ -33,28 +37,49 @@ export default function Navbar() {
                         </TooltipContent>
                     </Tooltip>
                 </DockIcon>
-                {/* <DockIcon> */}
-                {/*     <Tooltip> */}
-                {/*         <TooltipTrigger asChild> */}
-                {/*             <Link */}
-                {/*                 href="/blog" */}
-                {/*                 className={cn( */}
-                {/*                     buttonVariants({ */}
-                {/*                         variant: 'ghost', */}
-                {/*                         size: 'icon' */}
-                {/*                     }), */}
-                {/*                     'size-12' */}
-                {/*                 )} */}
-                {/*             > */}
-                {/*                 <NotebookIcon className="size-4" /> */}
-                {/*             </Link> */}
-                {/*         </TooltipTrigger> */}
-                {/*         <TooltipContent> */}
-                {/*             <p>Blog</p> */}
-                {/*         </TooltipContent> */}
-                {/*     </Tooltip> */}
-                {/* </DockIcon> */}
-                {/* <Separator orientation="vertical" className="h-full" /> */}
+                <DockIcon>
+                    <Tooltip>
+                        <TooltipTrigger asChild>
+                            <Link
+                                href="mailto:durgaprasadachana1108@gmail.com"
+                                className={cn(
+                                    buttonVariants({
+                                        variant: 'ghost',
+                                        size: 'icon'
+                                    }),
+                                    'size-12'
+                                )}
+                                onClick={() => playSound('/theme-audio.wav')}
+                            >
+                                <Icons.mail className="size-8" />
+                            </Link>
+                        </TooltipTrigger>
+                        <TooltipContent>gmail</TooltipContent>
+                    </Tooltip>
+                </DockIcon>
+                <DockIcon>
+                    <Tooltip>
+                        <TooltipTrigger asChild>
+                            <Link
+                                href="https://hashnode.com/@durgaprasad1108"
+                                target="_blank"
+                                className={cn(
+                                    buttonVariants({
+                                        variant: 'ghost',
+                                        size: 'icon'
+                                    }),
+                                    'size-12'
+                                )}
+                                onClick={() => playSound('/theme-audio.wav')}
+                            >
+                                <NotebookIcon className="size-4" />
+                            </Link>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                            <p>Blog</p>
+                        </TooltipContent>
+                    </Tooltip>
+                </DockIcon>
                 {Object.entries(DATA.contact.social).map(([name, social]) => (
                     <DockIcon key={name}>
                         <Tooltip>
@@ -68,6 +93,10 @@ export default function Navbar() {
                                         }),
                                         'size-12'
                                     )}
+                                    onClick={() =>
+                                        playSound('/theme-audio.wav')
+                                    }
+                                    target="_blank"
                                 >
                                     <social.icon className="size-4" />
                                 </Link>

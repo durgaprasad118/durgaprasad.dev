@@ -1,14 +1,16 @@
+'use client';
 import Markdown from 'react-markdown';
 import { AvatarImage } from '@radix-ui/react-avatar';
 import { DATA } from '../data/resume';
-import { Badge } from '../components/ui/badge';
 import { Avatar, AvatarFallback } from '../components/ui/avatar';
 import BlurFade from '../components/magicui/blur-fade';
 import BlurFadeText from '../components/magicui/blur-fade-text';
 import { ProjectCard } from '../components/project-card';
 import { ResumeCard } from '../components/resume-card';
+import Callout from '../components/Callout';
+import LinkText from '../components/ui/LinkText';
+import playSound from '../lib/PlaySound';
 const BLUR_FADE_DELAY = 0.04;
-
 export default function Page() {
     return (
         <main className="flex flex-col min-h-[100dvh] space-y-10">
@@ -20,11 +22,10 @@ export default function Page() {
                                 delay={BLUR_FADE_DELAY}
                                 className="text-2xl font-bold tracking-tighter sm:text-5xl xl:text-4xl/none"
                                 yOffset={8}
-                                text={`Hi, I'm ${DATA.name.split(' ')[0]} 👋`}
+                                text={`Hi, I'm ${DATA.name} 👋`}
                             />
-
                             <BlurFadeText
-                                className="max-w-[600px] text-slate-500 dark:text-slate-300 text-sm md:text-md"
+                                className="max-w-[600px] text-slate-500   dark:text-slate-300 text-sm md:text-md"
                                 delay={BLUR_FADE_DELAY}
                                 text={DATA.description}
                             />
@@ -46,10 +47,54 @@ export default function Page() {
                     <h2 className="text-xl font-bold">About</h2>
                 </BlurFade>
                 <BlurFade delay={BLUR_FADE_DELAY * 4}>
-                    <Markdown className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert">
+                    <Markdown className="prose max-w-full text-slate-500 dark:text-slate-300 text-pretty font-sans text-sm text-muted-foreground dark:prose-invert">
                         {DATA.summary}
                     </Markdown>
                 </BlurFade>
+            </section>
+            <section id="contact">
+                <div className="grid items-center justify-center gap-4  text-center  w-full py-1">
+                    <BlurFade delay={BLUR_FADE_DELAY * 16}>
+                        <div className="space-y-1">
+                            <Callout className=" text-zinc-600   dark:text-zinc-200 ">
+                                <p className="">
+                                    {
+                                        'I am currently open for full-time  developer positions.'
+                                    }
+                                </p>
+                                <p className="my-1">
+                                    {
+                                        'A collaborative team of engineers and designers, who are building great products. Interested in working together? Feel free to schedule a meet!'
+                                    }
+                                </p>
+                                <div className="mt-2 flex flex-row items-center justify-center gap-4">
+                                    <LinkText
+                                        href={'https://cal.com/durgaprasad118'}
+                                        className="text-slate-700 font-semibold text-sm "
+                                        target="_blank"
+                                        onClick={() =>
+                                            playSound('theme-audio.wav')
+                                        }
+                                    >
+                                        {'Schedule a meet/cal.com'}
+                                    </LinkText>
+                                    <LinkText
+                                        href={
+                                            'https://drive.google.com/file/d/1RcPL6Yk2GwMB7X9D_2tKEt1YBhE-XqQP/'
+                                        }
+                                        className="text-slate-700 font-semibold text-sm "
+                                        target="_blank"
+                                        onClick={() =>
+                                            playSound('theme-audio.wav')
+                                        }
+                                    >
+                                        {'Resume'}
+                                    </LinkText>
+                                </div>
+                            </Callout>
+                        </div>
+                    </BlurFade>
+                </div>
             </section>
             <section id="work">
                 <div className="flex min-h-0 flex-col gap-y-3">
@@ -76,41 +121,19 @@ export default function Page() {
                     ))}
                 </div>
             </section>
-            <section id="education">
-                <div className="flex min-h-0 flex-col gap-y-3">
-                    <BlurFade delay={BLUR_FADE_DELAY * 7}>
-                        <h2 className="text-xl font-bold">Education</h2>
-                    </BlurFade>
-                    {DATA.education.map((education, id) => (
-                        <BlurFade
-                            key={education.school}
-                            delay={BLUR_FADE_DELAY * 8 + id * 0.05}
-                        >
-                            <ResumeCard
-                                key={education.school}
-                                href={education.href}
-                                logoUrl={education.logoUrl}
-                                altText={education.school}
-                                title={education.school}
-                                period={`${education.start} - ${education.end}`}
-                                description={education.degree}
-                            />
-                        </BlurFade>
-                    ))}
-                </div>
-            </section>
             <section id="skills">
                 <div className="flex min-h-0 flex-col gap-y-2">
                     <BlurFade delay={BLUR_FADE_DELAY * 9}>
                         <h2 className="text-xl font-bold">Skills</h2>
                     </BlurFade>
-                    <div className="flex flex-wrap gap-1">
-                        {DATA.skills.map((skill, id) => (
+
+                    <div className="flex flex-wrap gap-2 pl-1">
+                        {DATA.skills.map((SkillIcon, index) => (
                             <BlurFade
-                                key={skill}
-                                delay={BLUR_FADE_DELAY * 10 + id * 0.05}
+                                key={index}
+                                delay={BLUR_FADE_DELAY * 6 + index * 0.05}
                             >
-                                <Badge key={skill}>{skill}</Badge>
+                                <SkillIcon />
                             </BlurFade>
                         ))}
                     </div>
@@ -140,33 +163,44 @@ export default function Page() {
                             </BlurFade>
                         ))}
                     </div>
+
+                    <BlurFade delay={BLUR_FADE_DELAY * 7}>
+                        <div className="flex items-center justify-center">
+                            <LinkText
+                                href={'https://github.com/durgaprasad118'}
+                                className="text-slate-600 dark:text-slate-300  font-semibold font-md "
+                                target="_blank"
+                                onClick={() => playSound('theme-audio.wav')}
+                            >
+                                {'For more projects'}
+                            </LinkText>
+                        </div>
+                    </BlurFade>
                 </div>
             </section>
-            {/* <section id="contact"> */}
-            {/*     <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12"> */}
-            {/*         <BlurFade delay={BLUR_FADE_DELAY * 16}> */}
-            {/*             <div className="space-y-3"> */}
-            {/*                 <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm"> */}
-            {/*                     Contact */}
-            {/*                 </div> */}
-            {/*                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl"> */}
-            {/*                     Get in Touch */}
-            {/*                 </h2> */}
-            {/*                 <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed"> */}
-            {/*                     Want to chat? Just shoot me a dm{' '} */}
-            {/*                     <Link */}
-            {/*                         href={DATA.contact.social.X.url} */}
-            {/*                         className="text-blue-500 hover:underline" */}
-            {/*                     > */}
-            {/*                         with a direct question on twitter */}
-            {/*                     </Link>{' '} */}
-            {/*                     and I&apos;ll respond whenever I can. I will */}
-            {/*                     ignore all soliciting. */}
-            {/*                 </p> */}
-            {/*             </div> */}
-            {/*         </BlurFade> */}
-            {/*     </div> */}
-            {/* </section> */}
+            <section id="education">
+                <div className="flex min-h-0 flex-col gap-y-3">
+                    <BlurFade delay={BLUR_FADE_DELAY * 7}>
+                        <h2 className="text-xl font-bold">Education</h2>
+                    </BlurFade>
+                    {DATA.education.map((education, id) => (
+                        <BlurFade
+                            key={education.school}
+                            delay={BLUR_FADE_DELAY * 8 + id * 0.05}
+                        >
+                            <ResumeCard
+                                key={education.school}
+                                href={education.href}
+                                logoUrl={education.logoUrl}
+                                altText={education.school}
+                                title={education.school}
+                                period={`${education.start} - ${education.end}`}
+                                description={education.degree}
+                            />
+                        </BlurFade>
+                    ))}
+                </div>
+            </section>
         </main>
     );
 }

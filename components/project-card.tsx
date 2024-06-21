@@ -10,6 +10,7 @@ import {
     CardTitle
 } from './ui/card';
 import { Badge } from './ui/badge';
+import playSound from '../lib/PlaySound';
 interface Props {
     title: string;
     href?: string;
@@ -45,6 +46,8 @@ export function ProjectCard({
             }
         >
             <Link
+                target="_blank"
+                onClick={() => playSound('theme-audio.wav')}
                 href={href || '#'}
                 className={cn('block cursor-pointer', className)}
             >
@@ -53,8 +56,6 @@ export function ProjectCard({
                         src={image}
                         alt={title}
                         className="h-40 w-full overflow-hidden object-cover object-top"
-                        // width={100}
-                        // height={100}
                     />
                 )}
             </Link>
@@ -68,7 +69,7 @@ export function ProjectCard({
                             .replace('www.', '')
                             .replace('/', '')}
                     </div>
-                    <Markdown className="prose max-w-full text-pretty font-sans text-xs text-muted-foreground dark:prose-invert">
+                    <Markdown className="text-slate-500 dark:text-slate-300 prose max-w-full text-pretty font-sans text-xs text-muted-foreground dark:prose-invert">
                         {description}
                     </Markdown>
                 </div>
@@ -90,9 +91,14 @@ export function ProjectCard({
             </CardContent>
             <CardFooter className="px-2 pb-2">
                 {links && links.length > 0 && (
-                    <div className="flex flex-row flex-wrap items-start gap-1">
+                    <div className="flex justify-center gap-1">
                         {links?.map((link, idx) => (
-                            <Link href={link?.href} key={idx} target="_blank">
+                            <Link
+                                href={link?.href}
+                                key={idx}
+                                target="_blank"
+                                onClick={() => playSound('theme-audio.wav')}
+                            >
                                 <Badge
                                     key={idx}
                                     className="flex gap-2 px-2 py-1 text-[10px]"
