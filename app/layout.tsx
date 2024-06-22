@@ -1,7 +1,6 @@
 import { TooltipProvider } from '@radix-ui/react-tooltip';
 import type { Metadata } from 'next';
 import { Inter as FontSans } from 'next/font/google';
-import Head from 'next/head';
 import Navbar from '../components/navbar';
 import { ThemeProvider } from '../components/theme-provider';
 import { DATA } from '../data/resume';
@@ -55,9 +54,6 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <Head>
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
             <body
                 className={cn(
                     'min-h-screen bg-background font-sans antialiased max-w-2xl mx-auto py-12 sm:py-24 px-6',
