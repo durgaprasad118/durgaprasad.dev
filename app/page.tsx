@@ -36,6 +36,7 @@ export default function Page() {
                                 <AvatarImage
                                     alt={DATA.name}
                                     src={DATA.avatarUrl}
+                                    loading="lazy"
                                 />
                                 <AvatarFallback>{DATA.initials}</AvatarFallback>
                             </Avatar>

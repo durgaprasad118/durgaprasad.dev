@@ -56,6 +56,7 @@ export function ProjectCard({
                         src={image}
                         alt={title}
                         className="h-40 w-full overflow-hidden object-cover object-top"
+                        loading="lazy"
                     />
                 )}
             </Link>
