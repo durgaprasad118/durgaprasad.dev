@@ -3,14 +3,15 @@ import { ChevronRightIcon } from 'lucide-react';
 import Link from 'next/link';
 import { Badge } from './ui/badge';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
+import playSound from '../lib/PlaySound';
 
 interface ResumeCardProps {
     logoUrl: string;
     altText: string;
     title: string;
     subtitle?: string;
-    href?: string;
     badges?: readonly string[];
+    href?: string;
     period: string;
     description?: string;
 }
@@ -26,7 +27,12 @@ export const ResumeCard = ({
     description
 }: ResumeCardProps) => {
     return (
-        <Link href={href || '#'} className="block cursor-pointer">
+        <Link
+            target="_blank"
+            href={href || '#'}
+            className="block cursor-pointer"
+            onClick={() => playSound('theme-audio.wav')}
+        >
             <Card className="flex">
                 <div className="flex-none">
                     <Avatar className="border size-12 m-auto bg-muted-background dark:bg-foreground">
@@ -40,8 +46,8 @@ export const ResumeCard = ({
                 </div>
                 <div className="flex-grow ml-4 items-center flex-col group">
                     <CardHeader>
-                        <div className="flex items-center justify-between gap-x-2 text-base">
-                            <h3 className="inline-flex items-center justify-center font-semibold leading-none text-xs sm:text-sm">
+                        <div className="flex items-center justify-between gap-x-1 text-base">
+                            <h3 className="inline-flex items-center  justify-center font-semibold  leading-none text-xs sm:text-sm">
                                 {title}
                                 {badges && (
                                     <span className="inline-flex gap-x-1">
@@ -66,7 +72,7 @@ export const ResumeCard = ({
                             <div className="font-sans text-xs">{subtitle}</div>
                         )}
                     </CardHeader>
-                    <CardContent className="mt-2 text-xs sm:text-sm text-slate-500 dark:text-slate-300">
+                    <CardContent className="mt-1 md:mt-2 text-xs sm:text-sm text-slate-500 dark:text-slate-300">
                         {description}
                     </CardContent>
                 </div>

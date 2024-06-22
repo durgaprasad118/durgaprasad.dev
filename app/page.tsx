@@ -10,14 +10,15 @@ import { ResumeCard } from '../components/resume-card';
 import Callout from '../components/Callout';
 import LinkText from '../components/ui/LinkText';
 import playSound from '../lib/PlaySound';
+import { SkillIcons } from '../components/icons';
 const BLUR_FADE_DELAY = 0.04;
 export default function Page() {
     return (
-        <main className="flex flex-col min-h-[100dvh] space-y-10">
+        <main className="flex flex-col min-h-[100dvh] space-y-8 md:space-y-10">
             <section id="hero">
-                <div className="mx-auto w-full max-w-2xl space-y-8">
+                <div className="mx-auto w-full max-w-2xl space-y-3">
                     <div className="gap-2 flex justify-between">
-                        <div className="flex-col flex flex-1 space-y-1.5">
+                        <div className="flex-col flex flex-1 space-y-4">
                             <BlurFadeText
                                 delay={BLUR_FADE_DELAY}
                                 className="text-2xl font-bold tracking-tighter sm:text-5xl xl:text-4xl/none"
@@ -25,7 +26,7 @@ export default function Page() {
                                 text={`Hi, I'm ${DATA.name} 👋`}
                             />
                             <BlurFadeText
-                                className="max-w-[600px] text-slate-500   dark:text-slate-300 text-sm md:text-md"
+                                className="max-w-[600px] text-slate-500   dark:text-slate-300 text-sm md:text-[16px]"
                                 delay={BLUR_FADE_DELAY}
                                 text={DATA.description}
                             />
@@ -62,7 +63,7 @@ export default function Page() {
                                         'I am currently open for full-time  developer positions.'
                                     }
                                 </p>
-                                <p className="my-1">
+                                <p className="">
                                     {
                                         'A collaborative team of engineers and designers, who are building great products. Interested in working together? Feel free to schedule a meet!'
                                     }
@@ -133,18 +134,20 @@ export default function Page() {
                                 key={index}
                                 delay={BLUR_FADE_DELAY * 6 + index * 0.05}
                             >
-                                <SkillIcon />
+                                <div className="transform  transition duration-200 ease-in-out cursor-pointer hover:scale-x-110 hover:animate-pulse">
+                                    <SkillIcon />
+                                </div>
                             </BlurFade>
                         ))}
                     </div>
                 </div>
             </section>
             <section id="projects">
-                <div className="space-y-6 w-full py-6">
+                <div className="space-y-4 w-full py-2">
                     <BlurFade delay={BLUR_FADE_DELAY * 7}>
                         <h2 className="text-xl font-bold">Projects</h2>
                     </BlurFade>
-                    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto">
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 max-w-[800px] mx-auto">
                         {DATA.projects.map((project, id) => (
                             <BlurFade
                                 key={project.title}
@@ -163,7 +166,6 @@ export default function Page() {
                             </BlurFade>
                         ))}
                     </div>
-
                     <BlurFade delay={BLUR_FADE_DELAY * 7}>
                         <div className="flex items-center justify-center">
                             <LinkText
@@ -201,6 +203,22 @@ export default function Page() {
                     ))}
                 </div>
             </section>
+
+            <BlurFade delay={BLUR_FADE_DELAY * 7}>
+                <div className="w-full flex justify-center items-center md:p-2 md:mt-6 py-4">
+                    {<SkillIcons.credit />}
+                    <div className="mx-1 text-slate-500   dark:text-slate-300  ">
+                        {new Date().getFullYear()}
+                    </div>
+                    <a
+                        href="https://www.durgaprasad.dev"
+                        onClick={() => playSound('theme-audio.wav')}
+                        className="mx-1 text-slate-500   dark:text-slate-300  dark:hover:text-blue-600 hover:text-blue-600 transition-all duration-200"
+                    >
+                        durgaprasad.dev
+                    </a>
+                </div>
+            </BlurFade>
         </main>
     );
 }

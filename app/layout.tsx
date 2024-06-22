@@ -6,7 +6,6 @@ import { TooltipProvider } from '@radix-ui/react-tooltip';
 import { cn } from '../lib/util';
 import { ThemeProvider } from '../components/theme-provider';
 import Navbar from '../components/navbar';
-import Head from 'next/head';
 const fontSans = FontSans({
     subsets: ['latin'],
     variable: '--font-sans'
@@ -61,7 +60,7 @@ export default function RootLayout({
                     fontSans.variable
                 )}
             >
-                <ThemeProvider attribute="class" defaultTheme="light">
+                <ThemeProvider attribute="class" defaultTheme="dark">
                     <TooltipProvider delayDuration={0}>
                         {children}
                         <Navbar />

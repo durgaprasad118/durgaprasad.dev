@@ -7,13 +7,14 @@ export const DATA = {
     location: 'Hyderabad',
     locationLink: 'https://www.google.com/maps/place/sanfrancisco',
     description:
-        'Crafting seamless digital experiences as a full-stack wizard, blending ReactJS, Node.js, and TypeScript into innovative web solutions.',
+        'Crafting seamless digital experiences as a full-stack wizard.',
     summary:
-        'Hey! I am an engineer , dedicated to building and designing scalable websites and applications that prioritize exceptional user experiences and aesthetic design. My hobbies include playing badminton and travelling ',
+        'Hey! I am an engineer, dedicated to building and designing scalable websites and applications that prioritize exceptional user experiences and aesthetic design. My hobbies include playing badminton and travelling ',
     avatarUrl: '/dp1.jpg',
     skills: [
         SkillIcons.typescript,
         SkillIcons.javascript,
+        SkillIcons.react,
         SkillIcons.next,
         SkillIcons.html,
         SkillIcons.css,

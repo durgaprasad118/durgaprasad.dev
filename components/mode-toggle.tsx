@@ -14,11 +14,11 @@ export function ModeToggle() {
             className="px-2"
             onClick={() => {
                 playSound('/theme-audio.wav');
-                setTheme(theme === 'dark' ? 'light' : 'dark');
+                setTheme(theme === 'light' ? 'dark' : 'light');
             }}
         >
-            <SunIcon className="h-[1.2rem] w-[1.2rem] text-neutral-800 dark:hidden dark:text-neutral-200" />
-            <MoonIcon className="hidden h-[1.2rem] w-[1.2rem] text-neutral-800 dark:block dark:text-neutral-200" />
+            <MoonIcon className="h-[1.2rem] w-[1.2rem] text-neutral-800 dark:hidden dark:text-neutral-200" />
+            <SunIcon className="hidden h-[1.2rem] w-[1.2rem] text-neutral-800 dark:block dark:text-neutral-200" />
         </Button>
     );
 }
