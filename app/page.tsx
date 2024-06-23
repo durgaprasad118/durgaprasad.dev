@@ -1,18 +1,20 @@
 'use client';
-import Markdown from 'react-markdown';
 import { AvatarImage } from '@radix-ui/react-avatar';
-import { DATA } from '../data/resume';
-import { Avatar, AvatarFallback } from '../components/ui/avatar';
+import { useRouter } from 'next/navigation';
+import Markdown from 'react-markdown';
+import Callout from '../components/Callout';
+import { SkillIcons } from '../components/icons';
 import BlurFade from '../components/magicui/blur-fade';
 import BlurFadeText from '../components/magicui/blur-fade-text';
 import { ProjectCard } from '../components/project-card';
 import { ResumeCard } from '../components/resume-card';
-import Callout from '../components/Callout';
+import { Avatar, AvatarFallback } from '../components/ui/avatar';
 import LinkText from '../components/ui/LinkText';
+import { DATA } from '../data/resume';
 import playSound from '../lib/PlaySound';
-import { SkillIcons } from '../components/icons';
 const BLUR_FADE_DELAY = 0.04;
 export default function Page() {
+    const router = useRouter();
     return (
         <main className="flex flex-col min-h-[100dvh] space-y-8 md:space-y-10">
             <section id="hero">
@@ -66,7 +68,7 @@ export default function Page() {
                                 </p>
                                 <p className="">
                                     {
-                                        'A collaborative team of engineers and designers, who are building great products. Interested in working together? Feel free to schedule a meet!'
+                                        'A collaborative team of developers who are building great products. Interested in working together? Feel free to schedule a meet!'
                                     }
                                 </p>
                                 <div className="mt-2 flex flex-row items-center justify-center gap-4">
@@ -211,13 +213,16 @@ export default function Page() {
                     <div className="mx-1 text-slate-500   dark:text-slate-300  ">
                         {new Date().getFullYear()}
                     </div>
-                    <a
-                        href="https://www.durgaprasad.dev"
-                        onClick={() => playSound('theme-audio.wav')}
-                        className="mx-1 text-slate-500   dark:text-slate-300  dark:hover:text-blue-600 hover:text-blue-600 transition-all duration-200"
+
+                    <div
+                        onClick={() => {
+                            playSound('/theme-audio.wav');
+                            router.push('/');
+                        }}
+                        className="mx-1 text-slate-500 dark:text-slate-300 dark:hover:text-blue-600 hover:text-blue-600 transition-all duration-200 cursor-pointer"
                     >
-                        durgaprasad.dev
-                    </a>
+                        {'durgaprasad.dev'}
+                    </div>
                 </div>
             </BlurFade>
         </main>
