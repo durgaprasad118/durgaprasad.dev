@@ -1,6 +1,8 @@
 'use client';
 import { AvatarImage } from '@radix-ui/react-avatar';
+import { useTheme } from 'next-themes';
 import { useRouter } from 'next/navigation';
+import GitHubCalendar from 'react-github-calendar';
 import Markdown from 'react-markdown';
 import Callout from '../components/Callout';
 import { SkillIcons } from '../components/icons';
@@ -14,6 +16,7 @@ import { DATA } from '../data/resume';
 import playSound from '../lib/PlaySound';
 const BLUR_FADE_DELAY = 0.04;
 export default function Page() {
+    const { theme } = useTheme();
     const router = useRouter();
     return (
         <main className="flex flex-col min-h-[100dvh] space-y-8 md:space-y-10">
@@ -46,6 +49,7 @@ export default function Page() {
                     </div>
                 </div>
             </section>
+
             <section id="about">
                 <BlurFade delay={BLUR_FADE_DELAY * 3}>
                     <h2 className="text-xl font-bold">About</h2>
@@ -57,21 +61,16 @@ export default function Page() {
                 </BlurFade>
             </section>
             <section id="contact">
-                <div className="grid items-center justify-center gap-4  text-center  w-full py-1">
-                    <BlurFade delay={BLUR_FADE_DELAY * 16}>
-                        <div className="space-y-1">
-                            <Callout className=" text-zinc-600   dark:text-zinc-200 ">
-                                <p className="">
-                                    {
-                                        'I am currently open for full-time  developer positions.'
-                                    }
-                                </p>
-                                <p className="">
-                                    {
-                                        'A collaborative team of developers who are building great products. Interested in working together? Feel free to schedule a meet!'
-                                    }
-                                </p>
-                                <div className="mt-2 flex flex-row items-center justify-center gap-4">
+                <div className="grid items-center justify-center   text-center  w-full ">
+                    <BlurFade delay={BLUR_FADE_DELAY * 2}>
+                        <div className="">
+                            <div
+                                className="px-4 py-2 mb-1 text-[14px] text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                                role="alert"
+                            >
+                                I am currently open for full-time developer
+                                positions.
+                                <div className="mt-1 flex flex-row items-center justify-center gap-4">
                                     <LinkText
                                         href={'https://cal.com/durgaprasad118'}
                                         className="text-slate-700 font-semibold text-sm "
@@ -95,8 +94,22 @@ export default function Page() {
                                         {'Resume'}
                                     </LinkText>
                                 </div>
-                            </Callout>
+                            </div>
                         </div>
+                    </BlurFade>
+                </div>
+            </section>
+
+            <section id="github">
+                <div className="space-y-1 w-full ">
+                    <BlurFade delay={BLUR_FADE_DELAY}>
+                        <GitHubCalendar
+                            colorScheme={theme == 'dark' ? 'dark' : 'light'}
+                            username="durgaprasad118"
+                            year={2024}
+                            hideTotalCount={true}
+                            hideColorLegend={true}
+                        />
                     </BlurFade>
                 </div>
             </section>
