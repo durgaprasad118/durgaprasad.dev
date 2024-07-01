@@ -61,11 +61,11 @@ export default function Page() {
                 </BlurFade>
             </section>
             <section id="contact">
-                <div className="grid items-center justify-center   text-center  w-full ">
+                <div className="   w-full ">
                     <BlurFade delay={BLUR_FADE_DELAY * 2}>
-                        <div className="">
+                        <div className="text-center">
                             <div
-                                className="px-4 py-2 mb-1 text-[14px] text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                                className="md:px-4 py-2 w-full mb-1 text-xs md:text-md text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
                                 role="alert"
                             >
                                 I am currently open for full-time developer
