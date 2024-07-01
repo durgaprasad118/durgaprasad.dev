@@ -65,7 +65,7 @@ export default function Page() {
                     <BlurFade delay={BLUR_FADE_DELAY * 2}>
                         <div className="text-center">
                             <div
-                                className="md:px-4 py-2 w-full mb-1 text-xs md:text-md text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                                className="md:px-4 py-3 w-full mb-1 text-xs md:text-[14px] text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
                                 role="alert"
                             >
                                 I am currently open for full-time developer
