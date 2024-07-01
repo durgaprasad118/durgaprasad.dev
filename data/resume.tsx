@@ -1,4 +1,3 @@
-import React from 'react';
 import { Icons, SkillIcons } from '../components/icons';
 export const DATA = {
     name: 'Durga Prasad',
@@ -9,7 +8,7 @@ export const DATA = {
     description:
         'Crafting seamless digital experiences as a full-stack wizard.',
     summary:
-        'Hey! I am an engineer, dedicated to building and designing scalable websites and applications that prioritize exceptional user experiences and aesthetic design. My hobbies include playing badminton and travelling ',
+        'Hey! I am an engineer, dedicated to building and designing scalable websites and applications that prioritize exceptional user experiences and aesthetic design. My hobbies include playing badminton and travelling. ',
     avatarUrl: '/dp1.jpg',
     skills: [
         SkillIcons.typescript,
@@ -67,6 +66,30 @@ export const DATA = {
             logoUrl: '/iiest.png',
             start: '2020',
             end: '2024'
+        }
+    ],
+    gallery: [
+        {
+            id: 1,
+            image: '/college.jpeg',
+            desc: 'IIEST, Shibpur'
+        },
+
+        {
+            id: 2,
+            image: '/meghalaya_grp.jpeg',
+            desc: 'Meghalaya'
+        },
+
+        {
+            id: 3,
+            image: '/tirumala.jpeg',
+            desc: 'Tirupathi'
+        },
+        {
+            id: 4,
+            image: '/darj.jpeg',
+            desc: 'darjeeling'
         }
     ],
     projects: [

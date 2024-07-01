@@ -4,8 +4,8 @@ import { useTheme } from 'next-themes';
 import { useRouter } from 'next/navigation';
 import GitHubCalendar from 'react-github-calendar';
 import Markdown from 'react-markdown';
-import Callout from '../components/Callout';
 import { SkillIcons } from '../components/icons';
+import ImageHoverComponent from '../components/ImageHover';
 import BlurFade from '../components/magicui/blur-fade';
 import BlurFadeText from '../components/magicui/blur-fade-text';
 import { ProjectCard } from '../components/project-card';
@@ -50,6 +50,19 @@ export default function Page() {
                 </div>
             </section>
 
+            <section
+                id="image Grid"
+                className="grid  grid-cols-2 md:grid-cols-3 lg:grid-cols-4 md:gap-4 gap-2"
+            >
+                {DATA.gallery.map((gall, index) => (
+                    <BlurFade key={index} delay={BLUR_FADE_DELAY * (index + 1)}>
+                        <ImageHoverComponent
+                            description={gall.desc}
+                            imageSrc={gall.image}
+                        />
+                    </BlurFade>
+                ))}
+            </section>
             <section id="about">
                 <BlurFade delay={BLUR_FADE_DELAY * 3}>
                     <h2 className="text-xl font-bold">About</h2>
@@ -65,7 +78,7 @@ export default function Page() {
                     <BlurFade delay={BLUR_FADE_DELAY * 2}>
                         <div className="text-center">
                             <div
-                                className="md:px-4 py-3 w-full mb-1 text-xs md:text-[14px] text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                                className="md:px-4 py-3 w-full mb-1 text-xs md:text-[14px] text-red-800 rounded-lg bg-red-50 dark:bg-gray-900 dark:text-red-400"
                                 role="alert"
                             >
                                 I am currently open for full-time developer
